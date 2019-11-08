@@ -24,6 +24,7 @@ module Qna
                        request_specs: false,
                        controller_spec: true
       g.fixture_replacement :factory_bot, dir: "spec/factories"
+      g.template_engine :slim
     end
   end
 end
