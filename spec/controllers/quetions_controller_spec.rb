@@ -2,19 +2,15 @@ require 'rails_helper'
 
 RSpec.describe QuetionsController, type: :controller do
   describe "GET #index" do
-    it 'populates an array of all quetions' do
-      quetion1=FactoryBot.create(:quetion)
-      quetion2=FactoryBot.create(:quetion)
-
+    let(:quetions){create_list(:quetion, 2)}
+    before do
       get :index
-
-      expect(assigns(:quetions)).to match_array([quetion1, quetion2])
     end
-
+    it 'populates an array of all quetions' do      
+      expect(assigns(:quetions)).to match_array(quetions)
+    end
     it 'renders index view' do
-      get :index
       expect(response).to render_template :index
     end
-
   end
 end
