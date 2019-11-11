@@ -30,4 +30,14 @@ RSpec.describe QuetionsController, type: :controller do
       expect(response).to render_template :new
     end
   end
+  describe "GET #edit" do
+  let(:quetion) {create(:quetion)}
+  before {get :edit, params: {id: quetion}}
+  it 'assigns the requested quetion to @quetion' do      
+    expect(assigns(:quetion)).to eq quetion
+  end
+  it 'render edit view' do
+    expect(response).to render_template :edit
+  end
+  end
 end
