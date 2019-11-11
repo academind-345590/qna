@@ -60,4 +60,25 @@ RSpec.describe QuetionsController, type: :controller do
       end
     end
   end
+  describe "PATCH #update" do
+    let(:quetion) {create(:quetion)}
+    context "with valid attributes" do
+      it 'assigns the requested quetion to @quetion' do      
+        patch :update, params: {id: quetion, quetion: attributes_for(:quetion)}
+        expect(assigns(:quetion)).to eq quetion
+      end
+      it 'changes quetion attributes' do
+        patch :update, params: {id: quetion, quetion: {title: 'newTitle', body: 'newBody'}}
+        quetion.reload
+        expect(quetion.title).to eq 'newTitle'
+        expect(quetion.body).to eq 'newBody'
+      end
+      it 'redirect to the updated quetion' do
+        patch :update, params: {id: quetion, quetion: attributes_for(:quetion)}
+        expect(response).to redirect_to quetion
+      end
+    end
+    context "with invalid attributes" do
+    end
+  end
 end

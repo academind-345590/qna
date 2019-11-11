@@ -1,5 +1,5 @@
 class QuetionsController < ApplicationController
-  before_action :load_quetion, only: [:show,:edit]
+  before_action :load_quetion, only: [:show,:edit, :update]
 
   def index
     @quetions=Quetion.all
@@ -25,6 +25,11 @@ class QuetionsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def update
+    @quetion.update(quetion_params)
+    redirect_to @quetion
   end
 
   private
