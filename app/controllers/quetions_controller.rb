@@ -1,5 +1,5 @@
 class QuetionsController < ApplicationController
-  before_action :load_quetion, only: [:show,:edit, :update]
+  before_action :load_quetion, only: [:show,:edit, :update, :destroy]
 
   def index
     @quetions=Quetion.all
@@ -33,6 +33,11 @@ class QuetionsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @quetion.destroy
+    redirect_to quetions_path
   end
 
   private

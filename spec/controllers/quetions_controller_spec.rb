@@ -89,4 +89,17 @@ RSpec.describe QuetionsController, type: :controller do
       end
     end
   end
+  describe 'DELETE #destroy' do
+    let(:quetion) {create(:quetion)}
+    it 'delete quetion' do
+      quetion
+      expect do
+        delete :destroy, params: {id: quetion}
+      end.to change(Quetion, :count).by(-1)
+    end
+    it 'redirect to index view' do
+      delete :destroy, params: {id: quetion}
+      expect(response).to redirect_to quetions_path
+    end
+  end
 end
