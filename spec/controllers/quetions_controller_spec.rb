@@ -31,13 +31,33 @@ RSpec.describe QuetionsController, type: :controller do
     end
   end
   describe "GET #edit" do
-  let(:quetion) {create(:quetion)}
-  before {get :edit, params: {id: quetion}}
-  it 'assigns the requested quetion to @quetion' do      
-    expect(assigns(:quetion)).to eq quetion
+    let(:quetion) {create(:quetion)}
+    before {get :edit, params: {id: quetion}}
+    it 'assigns the requested quetion to @quetion' do      
+      expect(assigns(:quetion)).to eq quetion
+    end
+    it 'render edit view' do
+      expect(response).to render_template :edit
+    end
   end
-  it 'render edit view' do
-    expect(response).to render_template :edit
-  end
+  describe 'POST #create' do
+    context 'with valid attributes' do
+      it 'saves the new quetion in the database' do       
+        expect { post :create, params: {quetion: attributes_for(:quetion)}}.to change(Quetion,:count).by(1)
+      end
+      it 'redirect to show view' do
+        post :create, params: {quetion: attributes_for(:quetion)}
+        expect(response).to redirect_to(assigns(:quetion))
+      end
+    end
+    context 'with invalid attributes' do
+      it 'does not save the quetion' do
+        expect { post :create, params: {quetion: attributes_for(:invalid_quetion)}}.to_not change(Quetion,:count)
+      end
+      it 're-renders new view' do
+        post :create, params: {quetion: attributes_for(:invalid_quetion)}
+        expect(response).to render_template :new
+      end
+    end
   end
 end
