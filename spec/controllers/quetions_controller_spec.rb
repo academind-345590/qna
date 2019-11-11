@@ -79,6 +79,14 @@ RSpec.describe QuetionsController, type: :controller do
       end
     end
     context "with invalid attributes" do
+      before {patch :update, params: {id: quetion, quetion: {title: 'newTitle', body: nil}}}
+      it 'does not change quetion attributes' do        
+        expect(quetion.title).to eq 'MyString'
+        expect(quetion.body).to eq 'MyText'
+      end
+      it 're-render edit vieew'do
+      expect(response).to render_template :edit
+      end
     end
   end
 end

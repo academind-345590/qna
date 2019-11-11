@@ -28,8 +28,11 @@ class QuetionsController < ApplicationController
   end
 
   def update
-    @quetion.update(quetion_params)
-    redirect_to @quetion
+    if @quetion.update(quetion_params)
+      redirect_to @quetion
+    else
+      render :edit
+    end
   end
 
   private
