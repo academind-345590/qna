@@ -8,4 +8,8 @@ class QuetionsController < ApplicationController
     @quetion=Quetion.find(params[:id])
   end
 
+  def new
+    @quetion=Quetion.new
+  end
+
 end

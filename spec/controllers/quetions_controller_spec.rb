@@ -21,4 +21,13 @@ RSpec.describe QuetionsController, type: :controller do
       expect(response).to render_template :show
     end
   end
+  describe "GET new" do
+    before {get :new}
+    it "assigns a new Quetion to @quetion" do
+      expect(assigns(:quetion)).to be_a_new(Quetion)
+    end
+    it "render new view" do
+      expect(response).to render_template :new
+    end
+  end
 end
