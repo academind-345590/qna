@@ -22,6 +22,7 @@ RSpec.describe QuetionsController, type: :controller do
     end
   end
   describe "GET new" do
+    sign_in_user
     before {get :new}
     it "assigns a new Quetion to @quetion" do
       expect(assigns(:quetion)).to be_a_new(Quetion)
