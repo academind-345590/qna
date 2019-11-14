@@ -32,6 +32,7 @@ RSpec.describe QuetionsController, type: :controller do
     end
   end
   describe "GET #edit" do
+    sign_in_user
     let(:quetion) {create(:quetion)}
     before {get :edit, params: {id: quetion}}
     it 'assigns the requested quetion to @quetion' do      
@@ -42,6 +43,7 @@ RSpec.describe QuetionsController, type: :controller do
     end
   end
   describe 'POST #create' do
+    sign_in_user
     context 'with valid attributes' do
       it 'saves the new quetion in the database' do       
         expect { post :create, params: {quetion: attributes_for(:quetion)}}.to change(Quetion,:count).by(1)
@@ -62,6 +64,7 @@ RSpec.describe QuetionsController, type: :controller do
     end
   end
   describe "PATCH #update" do
+    sign_in_user
     let(:quetion) {create(:quetion)}
     context "with valid attributes" do
       it 'assigns the requested quetion to @quetion' do      
@@ -91,6 +94,7 @@ RSpec.describe QuetionsController, type: :controller do
     end
   end
   describe 'DELETE #destroy' do
+    sign_in_user
     let(:quetion) {create(:quetion)}
     it 'delete quetion' do
       quetion
