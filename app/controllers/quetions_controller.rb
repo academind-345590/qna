@@ -1,5 +1,6 @@
 class QuetionsController < ApplicationController
   before_action :load_quetion, only: [:show,:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @quetions=Quetion.all
