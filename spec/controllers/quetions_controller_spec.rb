@@ -17,6 +17,9 @@ RSpec.describe QuetionsController, type: :controller do
     it 'assigns the requested quetion to @quetion' do      
       expect(assigns(:quetion)).to eq quetion
     end
+    it 'assigns new answer for quetion' do
+      expect(assigns(:answer)).to be_a_new(Answer)
+    end
     it 'render show view' do
       expect(response).to render_template :show
     end
