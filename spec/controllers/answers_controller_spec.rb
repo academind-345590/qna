@@ -9,7 +9,7 @@ RSpec.describe AnswersController, type: :controller do
     end
     it 'redirect to quetion show view' do
       post :create, params: {answer: attributes_for(:answer), quetion_id: quetion}
-      expect(response).to redirect_to(quetion)
+      expect(response).to redirect_to(assigns(:quetion))
     end
   end
   context 'with invalid attributes' do
@@ -18,7 +18,7 @@ RSpec.describe AnswersController, type: :controller do
     end
     it 'redirect to quetion show view' do
       post :create, params: {answer: attributes_for(:invalid_answer), quetion_id: quetion}
-      expect(response).to redirect_to(quetion)
+      expect(response).to redirect_to(assigns(:quetion))
     end
   end
   end

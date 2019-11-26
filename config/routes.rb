@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :quetions
-  resources :answers
+  resources :quetions do
+    resources :answers
+  end
   root to: "quetions#index"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
