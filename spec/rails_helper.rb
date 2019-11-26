@@ -37,6 +37,7 @@ RSpec.configure do |config|
   require 'support/factory_bot.rb'
   require 'support/shoulda_matchers.rb'
   require 'support/devise.rb'
+  require 'support/database_cleaner.rb'
   # include custom macroses
   config.extend ControllerMacros, type: :controller
   config.include AcceptanceHelper, type: :feature
@@ -69,23 +70,5 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-  config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.strategy = :transaction
-  end
-
-  config.before(:each, js: true) do
-    DatabaseCleaner.strategy = :truncation
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-
-  config.after(:each) do
-    DatabaseCleaner.clean
-  end
+  
 end
