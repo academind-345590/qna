@@ -1,7 +1,11 @@
 h1= @quetion.title
 p= @quetion.body
 
-= form_for @answer do |f|
+.answers
+  - @quetion.answers.each do |answer|
+    p = answer.body
+
+= form_for [@quetion, @answer] do |f|
   = f.label :body, 'You answer'
   = f.text_area :body
   = f.submit 'Create'
