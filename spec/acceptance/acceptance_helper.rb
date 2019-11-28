@@ -1,5 +1,13 @@
-RSpec.configure do |config|
+require 'rails_helper'
 
+RSpec.configure do |config|
+  # Capybara webkit
+  # Capybara.javascript_driver = :webkit
+  
+  # rails_helper triger
+  config.use_transactional_fixtures = true
+
+  # Database cleaner
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
   end

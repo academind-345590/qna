@@ -38,6 +38,10 @@ group :development, :test do
   gem 'rspec-rails', git: 'https://github.com/rspec/rspec-rails', branch: '4-0-maintenance' # Previously '4-0-dev' branch
   gem 'rails-controller-testing'
   gem "factory_bot_rails"
+  gem 'capybara'
+  gem 'launchy'
+  gem 'database_cleaner'
+  # gem "capybara-webkit"
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -53,13 +57,8 @@ end
 
 group :test do
   gem 'shoulda-matchers'
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara'
-  gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
-  gem 'launchy'
-  gem 'database_cleaner'
+  gem 'webdrivers'  
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

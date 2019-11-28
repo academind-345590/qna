@@ -37,7 +37,7 @@ RSpec.configure do |config|
   require 'support/factory_bot.rb'
   require 'support/shoulda_matchers.rb'
   require 'support/devise.rb'
-  require 'support/database_cleaner.rb'
+  
   # include custom macroses
   config.extend ControllerMacros, type: :controller
   config.include AcceptanceHelper, type: :feature
