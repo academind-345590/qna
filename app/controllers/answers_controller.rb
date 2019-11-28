@@ -1,7 +1,7 @@
 class AnswersController < ApplicationController
   def create
     @quetion = Quetion.find(params[:quetion_id])
-    @quetion.answers.create(answer_params)
+    @answer = @quetion.answers.create(answer_params)
     redirect_to quetion_path(@quetion)
   end
 
