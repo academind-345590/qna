@@ -119,6 +119,9 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
+    capybara-webkit (1.15.1)
+      capybara (>= 2.3, < 4.0)
+      json
     childprocess (3.0.0)
     concurrent-ruby (1.1.5)
     crass (1.0.5)
@@ -143,6 +146,7 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
+    json (2.2.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (3.1.5)
@@ -286,6 +290,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara
+  capybara-webkit
   database_cleaner
   devise
   factory_bot_rails
@@ -302,7 +307,6 @@ DEPENDENCIES
   rspec-rails!
   rspec-support!
   sass-rails (>= 6)
-  selenium-webdriver
   shoulda-matchers
   slim-rails
   spring
