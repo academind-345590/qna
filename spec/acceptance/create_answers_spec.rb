@@ -8,7 +8,7 @@ feature 'User answer', %q{
   given(:user) {create(:user)}
   given(:quetion) {create(:quetion)}
 
-  scenario 'Authenticated user create answer' do #, js: true  для запуска в Firefox
+  scenario 'Authenticated user create answer', js: true do #, js: true  для запуска в Firefox
     sign_in(user)
     visit quetion_path(quetion)
 

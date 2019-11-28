@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.configure do |config|
   # Capybara webkit
-  # Capybara.javascript_driver = :webkit
+  Capybara.javascript_driver = :webkit
   
   # rails_helper triger
   config.use_transactional_fixtures = true
