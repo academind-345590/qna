@@ -27,7 +27,7 @@ feature 'User answer', %q{
 
   #   click_on 'Create'
 
-  #   expect(page).to have_content ""
+  #   expect(page).to have_content "Body can't be blank"
   # end
 
 

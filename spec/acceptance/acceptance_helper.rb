@@ -5,7 +5,7 @@ RSpec.configure do |config|
   Capybara.javascript_driver = :webkit
   
   # rails_helper triger
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
 
   # Database cleaner
   config.before(:suite) do

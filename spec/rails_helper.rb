@@ -38,6 +38,7 @@ RSpec.configure do |config|
   require 'support/shoulda_matchers.rb'
   require 'support/devise.rb'
   
+  
   # include custom macroses
   config.extend ControllerMacros, type: :controller
   config.include AcceptanceHelper, type: :feature
