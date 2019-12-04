@@ -5,6 +5,11 @@ class AnswersController < ApplicationController
     redirect_to quetion_path(@quetion)
   end
 
+  def update
+    @answer=Answer.find(params[:id])
+    @answer.update(answer_params)
+  end
+
   private
 
   def answer_params
