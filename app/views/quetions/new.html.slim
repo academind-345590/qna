@@ -1,6 +1,6 @@
 = form_for @quetion do |f|
-  = f.label :title
+  = f.label :title, 'Title'
   = f.text_field :title
-  = f.label :body
+  = f.label :body, 'Text'
   = f.text_area :body
   = f.submit 'Create'
