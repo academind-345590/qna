@@ -49,7 +49,7 @@ class QuetionsController < ApplicationController
   end
 
   def quetion_params
-    params.require(:quetion).permit(:title,:body)
+    params.require(:quetion).permit(:title,:body, attachments_attributes: [:file] )
   end
 
 end

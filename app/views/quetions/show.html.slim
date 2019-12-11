@@ -1,5 +1,9 @@
 h1= @quetion.title
 p= @quetion.body
+p Attachments:
+ul
+  - @quetion.attachments.each do |a|
+    li= a.file.file.filename
 
 .answers
   = render 'answers'
