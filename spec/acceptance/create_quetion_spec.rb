@@ -14,7 +14,7 @@ feature 'Create quetion', %q{
     visit quetions_path
     click_on 'Ask quetion'
     fill_in 'Title', with: 'Test quetion'
-    fill_in "Body", with: "Test text"
+    fill_in "Text", with: "Test text"
     click_on 'Create'
 
     expect(page).to have_content ""

@@ -12,12 +12,12 @@ feature 'User answer', %q{
     sign_in(user)
     visit quetion_path(quetion)
 
-    fill_in 'You answer', with: 'My answer'
+    fill_in 'You answer', with: 'My awesome answer'
     click_on 'Create'
 
     expect(current_path).to eq quetion_path(quetion)
     within '.answers' do
-      expect(page).to have_content 'My answer'
+      expect(page).to have_content 'My awesome answer'
     end
   end
 
