@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe QuetionsController, type: :controller do
+
   describe "GET #index" do
     let(:quetions){create_list(:quetion, 2)}
     before {get :index}
@@ -11,6 +12,7 @@ RSpec.describe QuetionsController, type: :controller do
       expect(response).to render_template :index
     end
   end
+
   describe "GET #show" do
     let(:quetion) {create(:quetion)}
     before {get :show, params: {id: quetion}}
@@ -24,11 +26,15 @@ RSpec.describe QuetionsController, type: :controller do
       expect(response).to render_template :show
     end
   end
+
   describe "GET new" do
     sign_in_user
     before {get :new}
     it "assigns a new Quetion to @quetion" do
       expect(assigns(:quetion)).to be_a_new(Quetion)
+    end
+    it 'build a new attachment for question' do
+      expect(assigns(:quetion).attachments.first).to be_a_new(Attachment)
     end
     it "render new view" do
       expect(response).to render_template :new

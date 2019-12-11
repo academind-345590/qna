@@ -12,6 +12,7 @@ class QuetionsController < ApplicationController
 
   def new
     @quetion=Quetion.new
+    @quetion.attachments.build
   end
 
   def edit
