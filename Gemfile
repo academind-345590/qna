@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 # upload file
 gem 'carrierwave'
+#Rails jQuery file uploads via standard Rails "remote: true" forms
+gem 'remotipart'
 
 group :development, :test do
   # There may be other lines in this block already. Simply append the following after:

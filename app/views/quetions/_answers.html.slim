@@ -1,9 +1,13 @@
 - @quetion.answers.each do |answer|
-    p= answer.body
-    -if user_signed_in?
-        p= link_to 'Edit'
-        p
-            =form_for [@quetion, answer], remote: true do |f| 
-                =f.label :body, "Answer"
-                =f.text_area :body
-                =f.submit 'Save'
+    - if answer.persisted?
+        p= answer.body
+        ul
+            - answer.attachments.each do |a|
+                li= link_to a.file.identifier, a.file.url
+        -if user_signed_in?
+            p= link_to 'Edit'
+            p
+                =form_for [@quetion, answer], remote: true do |f| 
+                    =f.label :body, "Answer"
+                    =f.text_area :body
+                    =f.submit 'Save'
