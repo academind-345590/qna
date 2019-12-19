@@ -1,7 +1,7 @@
 require_relative 'acceptance_helper'
 
 feature 'Add file to quetion', %q{
-  Inorder to aillustrate my quetop
+  In order to illustrate my quetion
   As an quetion's author
   I'd like to be able to attach files
 } do
